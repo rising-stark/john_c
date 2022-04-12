@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Fill the form below</h1>
+    <form action="/" method="post">
+      {% csrf_token %}
+      <div>
+        <label>Enter first name</label>
+        <input
+          type="text"
+          name="recipient_firstname"
+          placeholder="enter first name"
+          required />
+      </div>
+      <div>
+        <label>Enter Last name</label>
+        <input
+          type="text"
+          name="recipient_lastname"
+          placeholder="enter last name"
+          required />
+      </div>
+      <div>
+        <label>Enter email</label>
+        <input type="email" name="email" placeholder="enter email" required />
+      </div>
+      <div>
+        <label>Enter salary</label>
+        <input type="number" name="salary" placeholder="enter email" required />
+      </div>
+      <div>
+        <select name="country">
+          <option value="india">India</option>
+          <option value="usa">USA</option>
+          <option value="uk">UK</option>
+        </select>
+      </div>
+      <input type="submit" value="Submit data" />
+    </form>
+    <div class="data">
+      <table class="">
+        <thead>
+          <tr>
+            <th>First name</th>
+            <th>last name</th>
+            <th>Salary</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for r in recepients %}
+          <tr>
+            <td>{{r.recipient_firstname}}</td>
+            <td>{{r.recipient_lastname}}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      <ul></ul>
+    </div>
+  </body>
+</html>
